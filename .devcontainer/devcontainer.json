@@ -1,0 +1,19 @@
+{
+	"name": "Alpine cpp dev",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"postCreateCommand": "chmod +x ./.devcontainer/post-install.sh && ./.devcontainer/post-install.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-themes",
+				"ms-vscode.cpptools-extension-pack",
+				"twxs.cmake",
+				"ms-vscode.cmake-tools",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}
