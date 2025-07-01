@@ -211,20 +211,15 @@ public:
     } node;
 
 private:
-    node* start;
+    const node* start;
     const size_t size;
 
 public:
 
-    circular_list() : size(1) {
-        start = new circular_list::node();
-    };
+    circular_list() : circular_list(1) {};
 
-
-
-    circular_list(size_t size) : circular_list() {
-        this->size = size;
-
+    circular_list(size_t size) : size(size), start(new circular_list::node()) {
+        // Handle for iterating through the list
         circular_list::node* n = start;
 
         for (size_t i = 1; i < size; i++) {
@@ -235,12 +230,7 @@ public:
         n->next = start;
     };
 
-
-
-    circular_list(const circular_list& other) {
-        this->size = other.size;
-        start = new circular_list::node(other.start->val);
-
+    circular_list(const circular_list& other) : size(other.size), start(new circular_list::node(other.start->val)) {
         circular_list::node* n = start;
         circular_list::node* n_other = other.start;
         for (size_t i = 1; i < size; i++) {

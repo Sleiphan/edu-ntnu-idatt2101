@@ -240,12 +240,10 @@ public:
 
 
 const char* file_paths[] = {
-    "ø6g1",
-    "ø6g2",
-    "ø6g3",
-    "ø6g5",
-    "ø6g7",
-    "ø6Skandinavia"
+    "ø6g1.txt", // 0
+    "ø6g2.txt", // 1
+    "ø6g5.txt", // 2 <--
+    "ø6g6.txt", // 3 <--
 };
 
 bool test_bfs(const char* file_path) {
@@ -269,7 +267,7 @@ bool test_bfs(const char* file_path) {
 }
 
 void test_all_bfs() {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 4; i++)
         test_bfs(file_paths[i]);
 }
 
@@ -336,10 +334,7 @@ int main() {
     bfs_example(file_paths[0], 5);
     std::cout << std::endl;
 
-    topo_example(file_paths[3]);
-    std::cout << std::endl;
-
-    topo_example(file_paths[4]);
+    topo_example(file_paths[2]);
     std::cout << std::endl;
 
     return 0;

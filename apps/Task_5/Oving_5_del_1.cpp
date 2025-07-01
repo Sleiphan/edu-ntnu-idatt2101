@@ -1,12 +1,10 @@
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include <stdint.h>
 
-
-char* read_entire_file(char* file_path) {
+char* read_entire_file(const char* file_path) {
     errno = 0;
     FILE* f = fopen(file_path, "r");
 
@@ -34,7 +32,7 @@ char* read_entire_file(char* file_path) {
 
 
 
-std::vector<std::string> read_lines(char* file_path) {
+std::vector<std::string> read_lines(const char* file_path) {
     char* content = read_entire_file(file_path);
 
     if (!content)

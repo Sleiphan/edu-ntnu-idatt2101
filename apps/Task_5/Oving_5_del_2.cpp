@@ -177,7 +177,7 @@ public:
         }
 
         if (p->key != -1)
-            throw std::exception("This hash table is full");
+            throw std::runtime_error("This hash table is full");
         
         p->key = key;
         p->val = val;
@@ -249,7 +249,7 @@ public:
             p = (p + i) % data_size;
 
         if (data[p].key != -1)
-            throw std::exception("This hash table is full");
+            throw std::runtime_error("This hash table is full");
         
         data[p].key = key;
         data[p].val = val;

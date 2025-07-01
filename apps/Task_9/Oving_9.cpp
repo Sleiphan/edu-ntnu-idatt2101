@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <queue>
 #include <math.h>
+#include <thread>
 
 // ----------- //
 
@@ -24,8 +25,8 @@
 
 #pragma region Structs and typedefs
 
-char* node_file_paths[] = { "noder.txt", "kanter.txt", "interessepkt.txt" };
-const std::vector<char*> landmark_file_paths = {
+const char* node_file_paths[] = { "noder.txt", "kanter.txt", "interessepkt.txt" };
+const std::vector<const char*> landmark_file_paths = {
     "Aabenraa0.txt",
     "Ålesund0.txt",
     "Ilomantsi0.txt",
@@ -654,7 +655,7 @@ void create_and_store_landmarks(const std::vector<node_idx_t> lm_locations, cons
     std::vector<FILE*> files;
     for (int i = 0; i < lm_locations.size(); i++) {
         char buffer[128];
-        sprintf_s(buffer, "%s%d.txt", filename_prefix, i);
+        sprintf(buffer, "%s%d.txt", filename_prefix, i);
 
         FILE* f = fopen(buffer, "w");
 
@@ -1072,7 +1073,7 @@ void find_path_dijkstra(node_t* nodes, node_idx_t node_count, node_idx_t start_n
     // algoritmene.
 
     char buff[128]{0};
-    sprintf_s(buff, "Dijkstra_%d_%d.txt", start_node, end_node);
+    sprintf(buff, "Dijkstra_%d_%d.txt", start_node, end_node);
     FILE* f = fopen(buff, "w");
 
     int nodes_in_route = 0;
@@ -1111,7 +1112,7 @@ void find_path_ALT(node_t* nodes, node_idx_t node_count, node_idx_t start_node, 
     // algoritmene.
 
     char buff[128]{0};
-    sprintf_s(buff, "ALT_%d_%d.txt", start_node, end_node);
+    sprintf(buff, "ALT_%d_%d.txt", start_node, end_node);
     FILE* f = fopen(buff, "w");
 
     int nodes_in_route = 0;
